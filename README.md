@@ -4,13 +4,13 @@
 #include <iomanip>
 #include <string>
 using namespace std;
-class Menu{
+class Menu {
 public:
 	string MenuName;
 	double MenuPrice;
 public:
 	Menu();
-	Menu(string item, double price){
+	Menu(string item, double price) {
 		MenuName = item;
 		MenuPrice = price;
 	}
@@ -26,7 +26,7 @@ string DisplayMenu() {
 	cout << "Select Coffee or Tea (Note It is key sensitive): ";
 	cin >> select;
 	while (select != "tea" || select != "coffee") {
-		if (select == "Tea" || select == "tea" || select == "TEA"|| select == "Coffee" || select == "coffee" || select == "COFFEE") {
+		if (select == "Tea" || select == "tea" || select == "TEA" || select == "Coffee" || select == "coffee" || select == "COFFEE") {
 			break;
 		}
 		else {
@@ -38,20 +38,20 @@ string DisplayMenu() {
 	}
 	return select;
 }
-int main(){
+int main() {
 	int i, choice;
-	double money,change;
+	double money, change;
 	int sizeArr, sizeArr1;
 	string ChoiceMenu;
-	char Csugar;
-	Menu menuCoffee[] = {Menu("Ice Coffee", 3.0), Menu("Milk Coffee", 2.0), Menu("Black Coffee", 1.0)};
+	string Csugar;
+	Menu menuCoffee[] = { Menu("Ice Coffee", 3.0), Menu("Milk Coffee", 2.0), Menu("Black Coffee", 1.0) };
 	Menu menuTea[] = { Menu("Ice Tea", 3.0), Menu("Milk Tea", 2.0), Menu("Black Tea", 1.0) };
 	ChoiceMenu = DisplayMenu();
 	if (ChoiceMenu == "Tea" || ChoiceMenu == "tea" || ChoiceMenu == "TEA") {
 		system("cls");
-		cout <<"No." << left << setw(10) << "\tTea" << right << setw(15) << "Price (AED)" << endl;
-		for (i = 0; i <3 ; i++) {
-			cout <<i +1 << "\t" << left << setw(10) << menuTea[i].MenuName << right << setw(15) << menuTea[i].MenuPrice << endl;
+		cout << "No." << left << setw(10) << "\tTea" << right << setw(15) << "Price (AED)" << endl;
+		for (i = 0; i < 3; i++) {
+			cout << i + 1 << "\t" << left << setw(10) << menuTea[i].MenuName << right << setw(15) << menuTea[i].MenuPrice << endl;
 		}
 		cout << endl;
 		cout << "Press 1 for Ice Tea" << endl
@@ -71,8 +71,8 @@ int main(){
 		case 1: {
 			cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Ice Tea with sugar" << endl;
 					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -91,7 +91,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Ice Tea without sugar " << endl;
 					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -120,8 +120,8 @@ int main(){
 		}break;
 		case 2: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes"||Csugar =="YES") {
 					cout << "You have ordered Milk Tea with sugar" << endl;
 					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -140,7 +140,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Milk Tea without sugar " << endl;
 					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -168,8 +168,8 @@ int main(){
 			}}break;
 		case 3: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Black Tea with sugar" << endl;
 					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -188,7 +188,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Black Tea without sugar " << endl;
 					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -220,7 +220,7 @@ int main(){
 		system("cls");
 		cout << left << setw(10) << "Coffee" << right << setw(15) << "Price (AED)" << endl;
 		for (i = 0; i < 3; i++) {
-			cout << left << setw(10) << menuCoffee[i].MenuName << right  << "\t" << menuTea[i].MenuPrice << endl;
+			cout << left << setw(10) << menuCoffee[i].MenuName << right << "\t" << menuTea[i].MenuPrice << endl;
 		}
 		cout << endl;
 		cout << "Press 1 for Ice Coffee" << endl
@@ -240,8 +240,8 @@ int main(){
 		case 1: {
 			cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Ice Coffee with sugar" << endl;
 					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -260,7 +260,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Ice Coffee without sugar " << endl;
 					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -289,8 +289,8 @@ int main(){
 		}break;
 		case 2: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Milk Coffee with sugar" << endl;
 					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -309,7 +309,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Milk Coffee without sugar " << endl;
 					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -337,8 +337,8 @@ int main(){
 			}}break;
 		case 3: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
-			while (cin.fail() || Csugar != 'Y' || Csugar != 'N') {
-				if (Csugar == 'Y' || Csugar == 'y') {
+			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Black Coffee with sugar" << endl;
 					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -357,7 +357,7 @@ int main(){
 					}
 					break;
 				}
-				else if (Csugar == 'N' || Csugar == 'n') {
+				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
 					cout << "You have ordered Black Coffee without sugar " << endl;
 					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
