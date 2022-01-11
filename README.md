@@ -1,4 +1,4 @@
-# Final-assessment
+#FINAL-ASSESSMENT
 
 #include <iostream>
 #include <iomanip>
@@ -39,6 +39,7 @@ string DisplayMenu() {
 	return select;
 }
 int main() {
+	bool choiceS =true;
 	int i, choice;
 	double money, change;
 	int sizeArr, sizeArr1;
@@ -67,6 +68,7 @@ int main() {
 			cin.ignore();
 			cin >> choice;
 		}
+		while (choiceS == true){
 		switch (choice) {
 		case 1: {
 			cout << "Do you want sugar with your drink? Press(Y/N)";
@@ -87,7 +89,7 @@ int main() {
 					}
 					else {
 						change = money - 3.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -106,7 +108,7 @@ int main() {
 					}
 					else {
 						change = money - 3.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -116,12 +118,12 @@ int main() {
 					cin.ignore();
 					cin >> Csugar;
 				}
-			}
+			}return 0;
 		}break;
 		case 2: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
 			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
-				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes"||Csugar =="YES") {
+				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
 					cout << "You have ordered Milk Tea with sugar" << endl;
 					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
 					while (cin.fail()) {
@@ -136,7 +138,7 @@ int main() {
 					}
 					else {
 						change = money - 2.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -155,7 +157,7 @@ int main() {
 					}
 					else {
 						change = money - 2.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -165,7 +167,7 @@ int main() {
 					cin.ignore();
 					cin >> Csugar;
 				}
-			}}break;
+			}return 0; }break;
 		case 3: {cout << "Do you want sugar with your drink? Press(Y/N)";
 			cin >> Csugar;
 			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
@@ -184,7 +186,7 @@ int main() {
 					}
 					else {
 						change = money - 1.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -203,7 +205,7 @@ int main() {
 					}
 					else {
 						change = money - 1.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Your change is: " << change << " AED" << endl;
 					}
 					break;
 				}
@@ -213,8 +215,16 @@ int main() {
 					cin.ignore();
 					cin >> Csugar;
 				}
-			}} break;
+			}return 0; } break;
+		default:
+			choice = false;
+			cout << "Try again. Error input" << endl;
+			cin.clear();
+			cin.ignore();
+			cin >> choice;
+			}
 		}
+
 	}
 	else {
 		system("cls");
@@ -236,153 +246,163 @@ int main() {
 			cin.ignore();
 			cin >> choice;
 		}
-		switch (choice) {
-		case 1: {
-			cout << "Do you want sugar with your drink? Press(Y/N)";
-			cin >> Csugar;
-			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
-				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
-					cout << "You have ordered Ice Coffee with sugar" << endl;
-					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
+		while (choiceS == true) {
+			switch (choice) {
+			case 1: {
+				cout << "Do you want sugar with your drink? Press(Y/N)";
+				cin >> Csugar;
+				while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+					if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
+						cout << "You have ordered Ice Coffee with sugar" << endl;
+						cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 3.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 3.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
+					}
+					else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
+						cout << "You have ordered Ice Coffee without sugar " << endl;
+						cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 3.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 3.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
+					}
+					else {
 						cout << "Try again" << endl;
 						cin.clear();
 						cin.ignore();
-						cin >> money;
+						cin >> Csugar;
 					}
-					if (money < 3.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
+				}return 0;
+			}break;
+			case 2: {cout << "Do you want sugar with your drink? Press(Y/N)";
+				cin >> Csugar;
+				while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+					if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
+						cout << "You have ordered Milk Coffee with sugar" << endl;
+						cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 2.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 2.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
+					}
+					else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
+						cout << "You have ordered Milk Coffee without sugar " << endl;
+						cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 2.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 2.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
 					}
 					else {
-						change = money - 3.00;
-						cout << "Your change is: " << change << "AED" << endl;
-					}
-					break;
-				}
-				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
-					cout << "You have ordered Ice Coffee without sugar " << endl;
-					cout << "Total is 3 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
 						cout << "Try again" << endl;
 						cin.clear();
 						cin.ignore();
-						cin >> money;
+						cin >> Csugar;
 					}
-					if (money < 3.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
+				}return 0; }break;
+			case 3: {cout << "Do you want sugar with your drink? Press(Y/N)";
+				cin >> Csugar;
+				while (cin.fail() || Csugar != "Y" || Csugar != "N") {
+					if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
+						cout << "You have ordered Black Coffee with sugar" << endl;
+						cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 1.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 1.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
+					}
+					else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
+						cout << "You have ordered Black Coffee without sugar " << endl;
+						cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
+						while (cin.fail()) {
+							cout << "Try again" << endl;
+							cin.clear();
+							cin.ignore();
+							cin >> money;
+						}
+						if (money < 1.0) {
+							cout << "You don't have enough money, ordered cancelled" << endl;
+							return 0;
+						}
+						else {
+							change = money - 1.00;
+							cout << "Your change is: " << change << " AED" << endl;
+						}
+						break;
 					}
 					else {
-						change = money - 3.00;
-						cout << "Your change is: " << change << "AED" << endl;
+						cout << "Try again" << endl;
+						cin.clear();
+						cin.ignore();
+						cin >> Csugar;
 					}
-					break;
-				}
-				else {
-					cout << "Try again" << endl;
-					cin.clear();
-					cin.ignore();
-					cin >> Csugar;
-				}
+				}return 0; } break;
+			default:
+			{
+				choice = false;
+				cout << "Try again. Error input" << endl;
+				cin.clear();
+				cin.ignore();
+				cin >> choice;
 			}
-		}break;
-		case 2: {cout << "Do you want sugar with your drink? Press(Y/N)";
-			cin >> Csugar;
-			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
-				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
-					cout << "You have ordered Milk Coffee with sugar" << endl;
-					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
-						cout << "Try again" << endl;
-						cin.clear();
-						cin.ignore();
-						cin >> money;
-					}
-					if (money < 2.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
-					}
-					else {
-						change = money - 2.00;
-						cout << "Your change is: " << change << "AED" << endl;
-					}
-					break;
-				}
-				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
-					cout << "You have ordered Milk Coffee without sugar " << endl;
-					cout << "Total is 2 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
-						cout << "Try again" << endl;
-						cin.clear();
-						cin.ignore();
-						cin >> money;
-					}
-					if (money < 2.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
-					}
-					else {
-						change = money - 2.00;
-						cout << "Your change is: " << change << "AED" << endl;
-					}
-					break;
-				}
-				else {
-					cout << "Try again" << endl;
-					cin.clear();
-					cin.ignore();
-					cin >> Csugar;
-				}
-			}}break;
-		case 3: {cout << "Do you want sugar with your drink? Press(Y/N)";
-			cin >> Csugar;
-			while (cin.fail() || Csugar != "Y" || Csugar != "N") {
-				if (Csugar == "Y" || Csugar == "y" || Csugar == "Yes" || Csugar == "yes" || Csugar == "YES") {
-					cout << "You have ordered Black Coffee with sugar" << endl;
-					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
-						cout << "Try again" << endl;
-						cin.clear();
-						cin.ignore();
-						cin >> money;
-					}
-					if (money < 1.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
-					}
-					else {
-						change = money - 1.00;
-						cout << "Your change is: " << change << "AED" << endl;
-					}
-					break;
-				}
-				else if (Csugar == "N" || Csugar == "n" || Csugar == "No" || Csugar == "no" || Csugar == "NO") {
-					cout << "You have ordered Black Coffee without sugar " << endl;
-					cout << "Total is 1 AED Enter how much money you'll pay: "; cin >> money;
-					while (cin.fail()) {
-						cout << "Try again" << endl;
-						cin.clear();
-						cin.ignore();
-						cin >> money;
-					}
-					if (money < 1.0) {
-						cout << "You don't have enough money, ordered cancelled" << endl;
-						return 0;
-					}
-					else {
-						change = money - 1.00;
-						cout << "Your change is: " << change << "AED" << endl;
-					}
-					break;
-				}
-				else {
-					cout << "Try again" << endl;
-					cin.clear();
-					cin.ignore();
-					cin >> Csugar;
-				}
-			}} break;
+			}
 		}
 	}
 	return 0;
